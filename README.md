@@ -11,7 +11,7 @@
 
 ## Table of Contents
 
-* [Why do we need this LittleFS_Mbed_RP2040 library](#why-do-we-need-this-littlefs_mbed_rpP2040-library)
+* [Why do we need this LittleFS_Mbed_RP2040 library](#why-do-we-need-this-littlefs_mbed_rp2040-library)
   * [Features](#features)
   * [Currently supported Boards](#currently-supported-boards)
 * [Changelog](#changelog)
@@ -500,7 +500,7 @@ Times have been run = 3
  => Open to write OK
 ```
 
-### 2. LittleFS_Counting on RaspberryPi Pico
+### 2. LittleFS_Test on RaspberryPi Pico
 
 The following is the sample terminal output when running example [LittleFS_Test](examples/LittleFS_Test) on MBED RaspberryPi Pico
 
@@ -641,7 +641,7 @@ If you want to contribute to this project:
 
 ### License
 
-- The library is licensed under [MIT](https://github.com/khoih-prog/LittleFS_Mbed_RP2040/blob/main/LICENSE)
+- The library is licensed under [GPLv3](https://github.com/khoih-prog/LittleFS_Mbed_RP2040/blob/main/LICENSE)
 
 ---
 

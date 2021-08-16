@@ -7,11 +7,12 @@
   Built by Khoi Hoang https://github.com/khoih-prog/LittleFS_Mbed_RP2040
   Licensed under MIT license
 
-  Version: 1.0.0
+  Version: 1.0.1
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.0.0   K Hoang      11/06/2021 Initial coding to support MBED RP2040-based boards such as RASPBERRY_PI_PICO. etc.
+  1.0.1   K Hoang      16/08/2021 Fix FORCE_REFORMAT bug in example
 *****************************************************************************************************************************/
 
 #include "LittleFS_Mbed_RP2040.h"

@@ -15,7 +15,6 @@
   * [Features](#features)
   * [Currently supported Boards](#currently-supported-boards)
 * [Changelog](#changelog)
-  * [Releases v1.0.2](#releases-v102)
   * [Releases v1.0.1](#releases-v101)
   * [Initial Releases v1.0.0](#initial-releases-v100)
 * [Prerequisites](#prerequisites)
@@ -63,10 +62,6 @@ The filesystem access uses normal [POSIX APIs](https://www.tutorialspoint.com/c_
 ---
 
 ## Changelog
-
-### Releases v1.0.2
-
-1. Add mbed and ArduinoCore-mbed to architectures of `library.properties`
 
 ### Releases v1.0.1
 
@@ -487,7 +482,7 @@ The following is the sample terminal output when running example [LittleFS_Count
 
 ```
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.2
+LittleFS_Mbed_RP2040 v1.0.1
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
 Deleting file: /littlefs/counts.txt => OK
@@ -495,7 +490,7 @@ Times have been run = 1
  => Open to write OK
 
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.2
+LittleFS_Mbed_RP2040 v1.0.1
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
  => Open to read OK
@@ -503,7 +498,7 @@ Times have been run = 2
  => Open to write OK
 
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.2
+LittleFS_Mbed_RP2040 v1.0.1
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
  => Open to read OK
@@ -518,7 +513,7 @@ The following is the sample terminal output when running example [LittleFS_Test]
 
 ```
 Start LittleFS_Test on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.2
+LittleFS_Mbed_RP2040 v1.0.1
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
 ====================================================
@@ -602,10 +597,6 @@ Sometimes, the library will only work if you update the board core to the latest
 ---
 
 ## Releases
-
-### Releases v1.0.2
-
-1. Add mbed and ArduinoCore-mbed to architectures of `library.properties`
 
 ### Releases v1.0.1
 

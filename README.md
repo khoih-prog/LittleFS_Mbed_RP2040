@@ -15,10 +15,7 @@
 * [Why do we need this LittleFS_Mbed_RP2040 library](#why-do-we-need-this-littlefs_mbed_rp2040-library)
   * [Features](#features)
   * [Currently supported Boards](#currently-supported-boards)
-* [Changelog](#changelog)
-  * [Releases v1.0.2](#releases-v102)
-  * [Releases v1.0.1](#releases-v101)
-  * [Initial Releases v1.0.0](#initial-releases-v100)
+* [Changelog](changelog.md)
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
   * [Use Arduino Library Manager](#use-arduino-library-manager)
@@ -34,7 +31,6 @@
   * [2. LittleFS_Test on RaspberryPi Pico](#2-littlefs_test-on-raspberrypi-pico)
 * [Debug](#debug)
 * [Troubleshooting](#troubleshooting)
-* [Releases](#releases)
 * [Issues](#issues)
 * [TO DO](#to-do)
 * [DONE](#done)
@@ -74,30 +70,12 @@ The filesystem access uses normal [POSIX APIs](https://www.tutorialspoint.com/c_
 ---
 ---
 
-## Changelog
-
-### Releases v1.0.2
-
-1. Add mbed, mbed_nano and ArduinoCore-mbed to architectures of `library.properties`
-
-### Releases v1.0.1
-
-1. Fix FORCE_REFORMAT bug in example
-2. Change default RP2040_FS_SIZE_KB from 256KB to 64KB to avoid crash in some new boards. Check [MBED crash - RP2040 rebooting #1](https://github.com/khoih-prog/LittleFS_Mbed_RP2040/issues/1)
-
-### Initial Releases v1.0.0
-
-1. Initial coding to support RP2040-based boards such as **Nano_RP2040_Connect, RASPBERRY_PI_PICO**, etc. using [**Arduino-mbed RP2040** core](https://github.com/arduino/ArduinoCore-mbed)
-
-
----
----
 
 ## Prerequisites
 
-1. [`Arduino IDE 1.8.15+` for Arduino](https://www.arduino.cc/en/Main/Software)
+1. [`Arduino IDE 1.8.16+` for Arduino](https://www.arduino.cc/en/Main/Software)
 2. [`Arduino mbed_rp2040 core 2.3.1-`](https://github.com/arduino/ArduinoCore-mbed) for RP2040-based boards using `ISSI` Flash chip, see [New board](pics/New_Board.png), such as **Arduino Nano RP2040 Connect, RASPBERRY_PI_PICO, etc.**. [![GitHub release](https://img.shields.io/github/release/arduino/ArduinoCore-mbed.svg)](https://github.com/arduino/ArduinoCore-mbed/releases/latest)
-3. [`Arduino mbed_rp2040 core 2.4.1`](https://github.com/arduino/ArduinoCore-mbed) for Arduino (Use Arduino Board Manager) RP2040-based boards using `Adesto` Flash chip, see [Old board](pics/Old_Board.png),, such as **Arduino Nano RP2040 Connect, RASPBERRY_PI_PICO, etc.**. [![GitHub release](https://img.shields.io/github/release/arduino/ArduinoCore-mbed.svg)](https://github.com/arduino/ArduinoCore-mbed/releases/latest)
+3. [`Arduino mbed_rp2040 core 2.4.1+`](https://github.com/arduino/ArduinoCore-mbed) for Arduino (Use Arduino Board Manager) RP2040-based boards using `Adesto` Flash chip, see [Old board](pics/Old_Board.png), such as **Arduino Nano RP2040 Connect, RASPBERRY_PI_PICO, etc.**. [![GitHub release](https://img.shields.io/github/release/arduino/ArduinoCore-mbed.svg)](https://github.com/arduino/ArduinoCore-mbed/releases/latest)
 
 ---
 ---
@@ -500,7 +478,7 @@ The following is the sample terminal output when running example [LittleFS_Count
 
 ```
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.2
+LittleFS_Mbed_RP2040 v1.0.3
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
 Deleting file: /littlefs/counts.txt => OK
@@ -508,7 +486,7 @@ Times have been run = 1
  => Open to write OK
 
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.2
+LittleFS_Mbed_RP2040 v1.0.3
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
  => Open to read OK
@@ -516,7 +494,7 @@ Times have been run = 2
  => Open to write OK
 
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.2
+LittleFS_Mbed_RP2040 v1.0.3
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
  => Open to read OK
@@ -531,7 +509,7 @@ The following is the sample terminal output when running example [LittleFS_Test]
 
 ```
 Start LittleFS_Test on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.2
+LittleFS_Mbed_RP2040 v1.0.3
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
 ====================================================
@@ -614,24 +592,6 @@ Sometimes, the library will only work if you update the board core to the latest
 ---
 ---
 
-## Releases
-
-### Releases v1.0.2
-
-1. Add mbed, mbed_nano and ArduinoCore-mbed to architectures of `library.properties`
-
-### Releases v1.0.1
-
-1. Fix FORCE_REFORMAT bug in example
-2. Change default RP2040_FS_SIZE_KB from 256KB to 64KB to avoid crash in some new boards. Check [MBED crash - RP2040 rebooting #1](https://github.com/khoih-prog/LittleFS_Mbed_RP2040/issues/1)
-
-### Initial Releases v1.0.0
-
-1. Initial coding to support RP2040-based boards such as **Nano_RP2040_Connect, RASPBERRY_PI_PICO**, etc. using [**Arduino-mbed RP2040** core](https://github.com/arduino/ArduinoCore-mbed)
-
----
----
-
 ### Issues
 
 Submit issues to: [LittleFS_Mbed_RP2040 issues](https://github.com/khoih-prog/LittleFS_Mbed_RP2040/issues)
@@ -657,6 +617,15 @@ Submit issues to: [LittleFS_Mbed_RP2040 issues](https://github.com/khoih-prog/Li
 ### Contributions and Thanks
 
 Many thanks for everyone for bug reporting, new feature suggesting, testing and contributing to the development of this library.
+
+1. Thanks to [Maximilian Gerhardt](https://github.com/maxgerhardt) to create bug report [RP2040_RTC_Time crashes Pico, does not work #3](https://github.com/khoih-prog/RP2040_RTC/issues/3) and help investigate and fix the bug, leading to v1.0.3
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/maxgerhardt"><img src="https://github.com/maxgerhardt.png" width="100px;" alt="maxgerhardt"/><br /><sub><b>Maximilian Gerhardt</b></sub></a><br /></td>
+  </tr> 
+</table>
+
 
 
 ---

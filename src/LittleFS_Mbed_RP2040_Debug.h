@@ -7,13 +7,14 @@
   Built by Khoi Hoang https://github.com/khoih-prog/LittleFS_Mbed_RP2040
   Licensed under MIT license
 
-  Version: 1.0.2
+  Version: 1.0.3
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.0.0   K Hoang      11/06/2021 Initial coding to support MBED RP2040-based boards such as RASPBERRY_PI_PICO. etc.
   1.0.1   K Hoang      16/08/2021 Fix FORCE_REFORMAT bug in example
   1.0.2   K Hoang      07/09/2021 Add mbed and ArduinoCore-mbed to architectures
+  1.0.3   K Hoang      02/11/2021 Fix crashing issue for new flash
 *****************************************************************************************************************************/  
 
 #ifndef LittleFS_Mbed_RP2040_Debug_h
@@ -44,7 +45,7 @@ const char LFS_MARK[] = "[LFS] ";
 
 #define LFS_PRINT         DBG_PORT_LFS.print
 #define LFS_PRINTLN       DBG_PORT_LFS.println
-#define LFS_FLUSH         DBG_PORT_LFS.flush
+
 
 //////////////////////////////////////////
 

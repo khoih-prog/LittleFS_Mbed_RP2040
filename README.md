@@ -21,7 +21,6 @@
   * [Use Arduino Library Manager](#use-arduino-library-manager)
   * [Manual Install](#manual-install)
   * [VS Code & PlatformIO](#vs-code--platformio)
-* [HOWTO Fix `Multiple Definitions` Linker Error](#howto-fix-multiple-definitions-linker-error)
 * [Examples](#examples)
   * [  1. LittleFS_Counting](examples/LittleFS_Counting)
   * [  2. LittleFS_Test](examples/LittleFS_Test)
@@ -73,7 +72,7 @@ The filesystem access uses normal [POSIX APIs](https://www.tutorialspoint.com/c_
 
 ## Prerequisites
 
-1. [`Arduino IDE 1.8.16+` for Arduino](https://www.arduino.cc/en/Main/Software)
+1. [`Arduino IDE 1.8.19+` for Arduino](https://www.arduino.cc/en/Main/Software)
 2. [`Arduino mbed_rp2040 core 2.3.1-`](https://github.com/arduino/ArduinoCore-mbed) for RP2040-based boards using `ISSI` Flash chip, see [New board](pics/New_Board.png), such as **Arduino Nano RP2040 Connect, RASPBERRY_PI_PICO, etc.**. [![GitHub release](https://img.shields.io/github/release/arduino/ArduinoCore-mbed.svg)](https://github.com/arduino/ArduinoCore-mbed/releases/latest)
 3. [`Arduino mbed_rp2040 core 2.4.1+`](https://github.com/arduino/ArduinoCore-mbed) for Arduino (Use Arduino Board Manager) RP2040-based boards using `Adesto` Flash chip, see [Old board](pics/Old_Board.png), such as **Arduino Nano RP2040 Connect, RASPBERRY_PI_PICO, etc.**. [![GitHub release](https://img.shields.io/github/release/arduino/ArduinoCore-mbed.svg)](https://github.com/arduino/ArduinoCore-mbed/releases/latest)
 
@@ -108,31 +107,6 @@ Another way to install is to:
 ---
 
 
-### HOWTO Fix `Multiple Definitions` Linker Error
-
-The current library implementation, using **xyz-Impl.h instead of standard xyz.cpp**, possibly creates certain `Multiple Definitions` Linker error in certain use cases. Although it's simple to just modify several lines of code, either in the library or in the application, the library is adding 2 more source directories
-
-1. **scr_h** for new h-only files
-2. **src_cpp** for standard h/cpp files
-
-besides the standard **src** directory.
-
-To use the **old standard cpp** way, locate this library' directory, then just 
-
-1. **Delete the all the files in src directory.**
-2. **Copy all the files in src_cpp directory into src.**
-3. Close then reopen the application code in Arduino IDE, etc. to recompile from scratch.
-
-To re-use the **new h-only** way, just 
-
-1. **Delete the all the files in src directory.**
-2. **Copy the files in src_h directory into src.**
-3. Close then reopen the application code in Arduino IDE, etc. to recompile from scratch.
-
----
----
-
-
 ### Examples 
 
  1. [LittleFS_Counting](examples/LittleFS_Counting)
@@ -144,6 +118,9 @@ To re-use the **new h-only** way, just
 ### Example [Littlefs_Test](examples/Littlefs_Test)
 
 ```
+#define LFS_MBED_RP2040_VERSION_MIN_TARGET      "LittleFS_Mbed_RP2040 v1.1.0"
+#define LFS_MBED_RP2040_VERSION_MIN             1001000
+
 #define _LFS_LOGLEVEL_          1
 #define RP2040_FS_SIZE_KB       64
 
@@ -415,6 +392,14 @@ void setup()
 
   Serial.print("\nStart LittleFS_Test on "); Serial.println(BOARD_NAME);
   Serial.println(LFS_MBED_RP2040_VERSION);
+  
+#if defined(LFS_MBED_RP2040_VERSION_MIN)
+  if (LFS_MBED_RP2040_VERSION_INT < LFS_MBED_RP2040_VERSION_MIN)
+  {
+    Serial.print("Warning. Must use this example on Version equal or later than : ");
+    Serial.println(LFS_MBED_RP2040_VERSION_MIN_TARGET);
+  }
+#endif
 
   myFS = new LittleFS_MBED();
 
@@ -478,7 +463,7 @@ The following is the sample terminal output when running example [LittleFS_Count
 
 ```
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.3
+LittleFS_Mbed_RP2040 v1.1.0
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
 Deleting file: /littlefs/counts.txt => OK
@@ -486,7 +471,7 @@ Times have been run = 1
  => Open to write OK
 
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.3
+LittleFS_Mbed_RP2040 v1.1.0
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
  => Open to read OK
@@ -494,7 +479,7 @@ Times have been run = 2
  => Open to write OK
 
 Start LittleFS_Counting on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.3
+LittleFS_Mbed_RP2040 v1.1.0
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
  => Open to read OK
@@ -509,7 +494,7 @@ The following is the sample terminal output when running example [LittleFS_Test]
 
 ```
 Start LittleFS_Test on RaspberryPi Pico
-LittleFS_Mbed_RP2040 v1.0.3
+LittleFS_Mbed_RP2040 v1.1.0
 [LFS] LittleFS size (KB) = 256
 [LFS] LittleFS Mount OK
 ====================================================

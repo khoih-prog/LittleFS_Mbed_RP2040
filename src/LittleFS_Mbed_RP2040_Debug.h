@@ -7,7 +7,7 @@
   Built by Khoi Hoang https://github.com/khoih-prog/LittleFS_Mbed_RP2040
   Licensed under MIT license
 
-  Version: 1.0.3
+  Version: 1.1.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
@@ -15,6 +15,7 @@
   1.0.1   K Hoang      16/08/2021 Fix FORCE_REFORMAT bug in example
   1.0.2   K Hoang      07/09/2021 Add mbed and ArduinoCore-mbed to architectures
   1.0.3   K Hoang      02/11/2021 Fix crashing issue for new flash
+  1.1.0   K Hoang     30/12/2021 Fix `multiple-definitions` linker error
 *****************************************************************************************************************************/  
 
 #ifndef LittleFS_Mbed_RP2040_Debug_h

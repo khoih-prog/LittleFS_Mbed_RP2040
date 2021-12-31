@@ -8,6 +8,9 @@
   Licensed under MIT license
 *****************************************************************************************************************************/
 
+#define LFS_MBED_RP2040_VERSION_MIN_TARGET      "LittleFS_Mbed_RP2040 v1.1.0"
+#define LFS_MBED_RP2040_VERSION_MIN             1001000
+
 #define _LFS_LOGLEVEL_          1
 #define RP2040_FS_SIZE_KB       64
 
@@ -279,6 +282,14 @@ void setup()
 
   Serial.print("\nStart LittleFS_Test on "); Serial.println(BOARD_NAME);
   Serial.println(LFS_MBED_RP2040_VERSION);
+  
+#if defined(LFS_MBED_RP2040_VERSION_MIN)
+  if (LFS_MBED_RP2040_VERSION_INT < LFS_MBED_RP2040_VERSION_MIN)
+  {
+    Serial.print("Warning. Must use this example on Version equal or later than : ");
+    Serial.println(LFS_MBED_RP2040_VERSION_MIN_TARGET);
+  }
+#endif
 
   myFS = new LittleFS_MBED();
 

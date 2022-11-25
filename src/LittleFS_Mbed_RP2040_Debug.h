@@ -1,6 +1,6 @@
 /****************************************************************************************************************************
   LittleFS_Mbed_RP2040_Debug.h - Filesystem wrapper for LittleFS on the Mbed RP2040
-  
+
   For MBED RP2040-based boards such as Nano_RP2040_Connect, RASPBERRY_PI_PICO, ADAFRUIT_FEATHER_RP2040 and GENERIC_RP2040.
   Written by Khoi Hoang
 
@@ -16,7 +16,7 @@
   1.0.2   K Hoang      07/09/2021 Add mbed and ArduinoCore-mbed to architectures
   1.0.3   K Hoang      02/11/2021 Fix crashing issue for new flash
   1.1.0   K Hoang     30/12/2021 Fix `multiple-definitions` linker error
-*****************************************************************************************************************************/  
+*****************************************************************************************************************************/
 
 #ifndef LittleFS_Mbed_RP2040_Debug_h
 #define LittleFS_Mbed_RP2040_Debug_h

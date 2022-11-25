@@ -1,6 +1,6 @@
 /****************************************************************************************************************************
   LittleFS_Mbed_RP2040.h - Filesystem wrapper for LittleFS on the Mbed RP2040
-  
+
   For MBED RP2040-based boards such as Nano_RP2040_Connect, RASPBERRY_PI_PICO, ADAFRUIT_FEATHER_RP2040 and GENERIC_RP2040.
   Written by Khoi Hoang
 
@@ -21,10 +21,10 @@
 #ifndef _LITTLEFS_MBED_RP2040_H
 #define _LITTLEFS_MBED_RP2040_H
 
-#if ( defined(ARDUINO_ARCH_RP2040) && defined(ARDUINO_ARCH_MBED) ) 
+#if ( defined(ARDUINO_ARCH_RP2040) && defined(ARDUINO_ARCH_MBED) )
   #warning Use MBED RP2040 (such as NANO_RP2040_CONNECT, RASPBERRY_PI_PICO) and LittleFS
 #else
-  #error This code is intended to run on the MBED RASPBERRY_PI_PICO platform! Please check your Tools->Board setting. 
+  #error This code is intended to run on the MBED RASPBERRY_PI_PICO platform! Please check your Tools->Board setting.
 #endif
 
 #define LFS_MBED_RP2040_VERSION           "LittleFS_Mbed_RP2040 v1.1.0"
@@ -54,9 +54,9 @@
     #undef MBED_RP2040_INITIALIZED
   #endif
   #define MBED_RP2040_INITIALIZED           true
-  
+
   #define MBED_LITTLEFS_NEED_INIT     true
-  
+
   #warning MBED_RP2040_INITIALIZED in LittleFS_Mbed_RP2040
 #endif
 
@@ -86,7 +86,7 @@
     #define RP2040_FS_SIZE_KB       (64)
     #warning Using default RP2040_FS_SIZE_KB == 64KB
   #else
-    #warning Using RP2040_FS_SIZE_KB defined in external code 
+    #warning Using RP2040_FS_SIZE_KB defined in external code
   #endif
 
   #if !defined(RP2040_FS_START)
@@ -109,96 +109,96 @@ static mbed::LittleFileSystem fs(MBED_LITTLEFS_FILE_NAME);
 
 class LittleFS_MBED
 {
-public:
+  public:
 
-  //////////////////////////////////////////////
-  
-  LittleFS_MBED()
-  {
-    _size     = RP2040_FS_SIZE_KB * 1024;
-    _mounted  = false;
-  }
-  
-  //////////////////////////////////////////////
+    //////////////////////////////////////////////
 
-  ~LittleFS_MBED() 
-  {
-    if (_mounted) 
+    LittleFS_MBED()
     {
-      unmount();      
+      _size     = RP2040_FS_SIZE_KB * 1024;
+      _mounted  = false;
     }
-  }
-  
-  //////////////////////////////////////////////
-  
-  bool init()
-  {
-    LFS_LOGERROR1("LittleFS size (KB) = ", RP2040_FS_SIZE_KB);
 
-  #if FORCE_REFORMAT
-    fs.reformat(&bd);
-  #endif  
+    //////////////////////////////////////////////
 
-    return mount();
-  }
-  
-  //////////////////////////////////////////////
-   
-  bool mount()
-  {
-    if (!_mounted)
+    ~LittleFS_MBED()
     {
-      int err = fs.mount(&bd);
-
-      LFS_LOGERROR(err ? "LittleFS Mount Fail" : "LittleFS Mount OK");
-
-      if (err)
+      if (_mounted)
       {
-        // Reformat if we can't mount the filesystem
-        LFS_LOGERROR("Formatting... ");
-
-        err = fs.reformat(&bd);
+        unmount();
       }
+    }
 
-      _mounted = (err == 0);
-    
+    //////////////////////////////////////////////
+
+    bool init()
+    {
+      LFS_LOGERROR1("LittleFS size (KB) = ", RP2040_FS_SIZE_KB);
+
+#if FORCE_REFORMAT
+      fs.reformat(&bd);
+#endif
+
+      return mount();
+    }
+
+    //////////////////////////////////////////////
+
+    bool mount()
+    {
       if (!_mounted)
       {
-        LFS_LOGERROR("\nLittleFS error");
-      } 
-    }
-    
-    return _mounted;
-  }
-  
-  //////////////////////////////////////////////
-  
-  bool unmount()
-{
-  if (_mounted)
-  {
-    int err = fs.unmount();
-  
-    LFS_LOGERROR1("Unmount FS ", err < 0 ? "Fail" : "OK");
- 
-    if (err < 0)
-    {   
-      return false;
-    }
-  }
-  
-  _mounted = false;
-  
-  return true;
-}
-  
-  //////////////////////////////////////////////
-  
-private:
+        int err = fs.mount(&bd);
 
-  uint32_t _size;
+        LFS_LOGERROR(err ? "LittleFS Mount Fail" : "LittleFS Mount OK");
 
-  bool     _mounted;  
+        if (err)
+        {
+          // Reformat if we can't mount the filesystem
+          LFS_LOGERROR("Formatting... ");
+
+          err = fs.reformat(&bd);
+        }
+
+        _mounted = (err == 0);
+
+        if (!_mounted)
+        {
+          LFS_LOGERROR("\nLittleFS error");
+        }
+      }
+
+      return _mounted;
+    }
+
+    //////////////////////////////////////////////
+
+    bool unmount()
+    {
+      if (_mounted)
+      {
+        int err = fs.unmount();
+
+        LFS_LOGERROR1("Unmount FS ", err < 0 ? "Fail" : "OK");
+
+        if (err < 0)
+        {
+          return false;
+        }
+      }
+
+      _mounted = false;
+
+      return true;
+    }
+
+    //////////////////////////////////////////////
+
+  private:
+
+    uint32_t _size;
+
+    bool     _mounted;
 };
 
 #endif // ifndef _LITTLEFS_MBED_RP2040_H

@@ -6,7 +6,11 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](#Contributing)
 [![GitHub issues](https://img.shields.io/github/issues/khoih-prog/LittleFS_Mbed_RP2040.svg)](http://github.com/khoih-prog/LittleFS_Mbed_RP2040/issues)
 
-<a href="https://www.buymeacoffee.com/khoihprog6" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 181px !important;" ></a>
+
+<a href="https://www.buymeacoffee.com/khoihprog6" title="Donate to my libraries using BuyMeACoffee"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Donate to my libraries using BuyMeACoffee" style="height: 50px !important;width: 181px !important;" ></a>
+<a href="https://www.buymeacoffee.com/khoihprog6" title="Donate to my libraries using BuyMeACoffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-orange.svg?logo=buy-me-a-coffee&logoColor=FFDD00" style="height: 20px !important;width: 200px !important;" ></a>
+<a href="https://profile-counter.glitch.me/khoih-prog/count.svg" title="Total khoih-prog Visitor count"><img src="https://profile-counter.glitch.me/khoih-prog/count.svg" style="height: 30px;width: 200px;"></a>
+<a href="https://profile-counter.glitch.me/khoih-prog-LittleFS_Mbed_RP2040/count.svg" title="LittleFS_Mbed_RP2040 Visitor count"><img src="https://profile-counter.glitch.me/khoih-prog-LittleFS_Mbed_RP2040/count.svg" style="height: 30px;width: 200px;"></a>
 
 
 ---
@@ -46,11 +50,20 @@
 
 ### Important Notes
 
-The LittleFS of the new **Nano_RP2040_Connect** board ( see [New board](pics/New_Board.png) ), using ISSI Flash chip, is currently not working with [`Arduino mbed_rp2040 core 2.4.1`](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.4.1). Please downgrade to [`Arduino mbed_rp2040 core 2.3.1`](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.3.1)
+The LittleFS of the new **Nano_RP2040_Connect** board (see picture below), using `ISSI` Flash chip, is currently **not working** with [`Arduino mbed_rp2040 core 2.4.1+`](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.4.1). Please downgrade to [`Arduino mbed_rp2040 core 2.3.1`](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.3.1)
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/LittleFS_Mbed_RP2040/raw/main/pics/New_Board.png">
+</p>
 
 Check [**RP2040 Connect board has faulty components in newest purchase** #318](https://github.com/arduino/ArduinoCore-mbed/issues/318#) for more information of when and how the issue will be fixed.
 
-The old board ( see [Old board](pics/Old_Board.png) ), using Adesto Flash chip, is currently working with [`Arduino mbed_rp2040 core 2.4.1`](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.4.1).
+The old board (see picture below), using `Adesto` Flash chip, is currently working with [`Arduino mbed_rp2040 core 2.4.1+`](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.4.1).
+
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/LittleFS_Mbed_RP2040/raw/main/pics/Old_Board.png">
+</p>
 
 ---
 ---
@@ -102,7 +115,7 @@ Another way to install is to:
 
 1. Install [VS Code](https://code.visualstudio.com/)
 2. Install [PlatformIO](https://platformio.org/platformio-ide)
-3. Install [**LittleFS_Mbed_RP2040** library](https://platformio.org/lib/show/12420/LittleFS_Mbed_RP2040) by using [Library Manager](https://platformio.org/lib/show/12420/LittleFS_Mbed_RP2040/installation). Search for **LittleFS_Mbed_RP2040** in [Platform.io Author's Libraries](https://platformio.org/lib/search?query=author:%22Khoi%20Hoang%22)
+3. Install [**LittleFS_Mbed_RP2040** library](https://registry.platformio.org/libraries/khoih-prog/LittleFS_Mbed_RP2040) by using [Library Manager](https://registry.platformio.org/libraries/khoih-prog/LittleFS_Mbed_RP2040/installation). Search for **LittleFS_Mbed_RP2040** in [Platform.io Author's Libraries](https://platformio.org/lib/search?query=author:%22Khoi%20Hoang%22)
 4. Use included [platformio.ini](platformio/platformio.ini) file from examples to ensure that all dependent libraries will installed automatically. Please visit documentation for the other options and examples at [Project Configuration File](https://docs.platformio.org/page/projectconf.html)
 
 
@@ -120,7 +133,7 @@ Another way to install is to:
 
 ### Example [Littlefs_Test](examples/Littlefs_Test)
 
-```
+```cpp
 #define LFS_MBED_RP2040_VERSION_MIN_TARGET      "LittleFS_Mbed_RP2040 v1.1.0"
 #define LFS_MBED_RP2040_VERSION_MIN             1001000
 
@@ -455,6 +468,8 @@ void loop()
 {
 }
 ```
+
+
 ---
 ---
 
@@ -464,7 +479,7 @@ void loop()
 
 The following is the sample terminal output when running example [LittleFS_Counting](examples/LittleFS_Counting) on MBED RaspberryPi Pico
 
-```
+```cpp
 Start LittleFS_Counting on RaspberryPi Pico
 LittleFS_Mbed_RP2040 v1.1.0
 [LFS] LittleFS size (KB) = 256
@@ -490,12 +505,14 @@ Times have been run = 3
  => Open to write OK
 ```
 
+---
+
 ### 2. LittleFS_Test on RaspberryPi Pico
 
 The following is the sample terminal output when running example [LittleFS_Test](examples/LittleFS_Test) on MBED RaspberryPi Pico
 
 
-```
+```cpp
 Start LittleFS_Test on RaspberryPi Pico
 LittleFS_Mbed_RP2040 v1.1.0
 [LFS] LittleFS size (KB) = 256
@@ -548,7 +565,6 @@ Deleting file: /littlefs/hello2.txt => OK
 ====================================================
 
 Test complete
-
 ```
 
 ---
@@ -637,6 +653,6 @@ If you want to contribute to this project:
 
 ## Copyright
 
-Copyright 2021- Khoi Hoang
+Copyright (c) 2021- Khoi Hoang
 
 
